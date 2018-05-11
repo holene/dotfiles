@@ -7,7 +7,7 @@ if ! is-executable brew -o ! is-executable git; then
   return
 fi
 
-brew install nvm
+brew install npm
 
 export DOTFILES_BREW_PREFIX_NVM=`brew --prefix nvm`
 set-config "DOTFILES_BREW_PREFIX_NVM" "$DOTFILES_BREW_PREFIX_NVM" "$DOTFILES_CACHE"
@@ -18,8 +18,9 @@ nvm alias default 8
 
 # Globally install with npm
 
-packages=(
+npm_packages=(
   nodemon
 )
 
-npm install -g "${packages[@]}"
+export npm_packages
+npm install -g "${npm_packages[@]}"

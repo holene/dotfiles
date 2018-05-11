@@ -13,12 +13,11 @@ brew tap caskroom/fonts
 
 # Install packages
 
-apps=(
+cask_apps=(
   alfred
   dash2
   dropbox
   flux
-  font-fira-code
   google-chrome
   google-chrome-canary
   iterm2
@@ -33,7 +32,8 @@ apps=(
   vlc
 )
 
-brew cask install "${apps[@]}"
+export cask_apps
+brew cask install "${cask_apps[@]}"
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package qlvideo

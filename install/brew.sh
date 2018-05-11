@@ -22,11 +22,13 @@ apps=(
   coreutils
   git
   git-extras
-  python
+  pandoc
   ruby
+  python
 )
 
-brew install "${apps[@]}"
+export brew_apps
+brew install "${brew_apps[@]}"
 
 # Remove outdated versions from the cellar.
 brew cleanup

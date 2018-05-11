@@ -15,6 +15,8 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 
 if is-executable git -a -d "$DOTFILES_DIR/.git"; then git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master; fi
 
+# Execute python script for generating README.md
+
 # Bunch of symlinks
 
 ln -sfv "$DOTFILES_DIR/runcom/.bash_profile" ~
