@@ -1,9 +1,5 @@
 # Function for grabbing application lists from install/x.sh
-import os
-# cask_apps, brew_apps, npm_packages
-lst = os.environ; 
-
-def writeToFile(filename)
+def writeToFile(filename, lst)
     filename = open('filename.md', 'w')
     for item in lst
         filename.write("* %s\n" % item)

@@ -1,0 +1,15 @@
+{
+	"bootstrapped": true,
+	"installed_packages":
+	[
+		"BracketHighlighter",
+		"Extract Sublime Package",
+		"LaTeX-cwl",
+		"LaTeXing",
+		"Package Control",
+		"PackageResourceViewer",
+		"ScopeHunter",
+		"TikZ",
+		"WordCount"
+	]
+}

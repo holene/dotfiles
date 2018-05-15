@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-# Get current dir (so run this script from anywhere)
+# Get current dir (so this script runs from anywhere)
 
-export DOTFILES_DIR DOTFILES_CACHE DOTFILES_EXTRA_DIR
+export DOTFILES_DIR DOTFILES_CACHE DOTFILES_EXTRA_DIR DOTFILES_RESOURCES_DIR
+
+# Setting directory helpers
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
 DOTFILES_EXTRA_DIR="$HOME/.extra"
+DOTFILES_RESOURCES_DIR="$DOTFILES_DIR/resources"
 
 # Make utilities available
 
@@ -27,11 +30,11 @@ ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 
 # Package managers & packages
 
+. "$DOTFILES_DIR/install/xcode.sh"
 . "$DOTFILES_DIR/install/brew.sh"
 . "$DOTFILES_DIR/install/npm.sh"
 . "$DOTFILES_DIR/install/bash.sh"
 . "$DOTFILES_DIR/install/brew-cask.sh"
-. "$DOTFILES_DIR/install/gem.sh"
 
 # Run tests
 

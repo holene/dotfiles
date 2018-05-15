@@ -8,6 +8,8 @@ if ! hash pandoc 2>/dev/null; then
     brew install pandoc
 fi
 
+for 
+
 # Creating readme.md
 pandoc *.md > README.md
 

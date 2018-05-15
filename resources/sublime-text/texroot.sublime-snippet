@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[% -*- root: ${1:Value} -*-]]></content>
+	<tabTrigger>texroot</tabTrigger>
+  <scope>text.tex.latex</scope>
+  <description>LaTeXing Root Directory</description>
+</snippet>
