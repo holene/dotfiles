@@ -1,37 +1,39 @@
 #!/usr/bin/env bash
 
-if ! is-macos -o ! is-executable ruby -o ! is-executable curl -o ! is-executable git; then
-  echo "Skipped: Homebrew (missing: ruby, curl and/or git)"
-  return
-fi
+echo "This is brew.sh"
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# if ! is-macos -o ! is-executable ruby -o ! is-executable curl -o ! is-executable git; then
+#   echo "Skipped: Homebrew (missing: ruby, curl and/or git)"
+#   return
+# fi
 
-# Inspired by https://github.com/mathiasbynens/dotfiles/blob/master/brew.sh and https://github.com/webpro/dotfiles/blob/master/install/brew.sh
+# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Install command-line tools using Homebrew.
+# # Inspired by https://github.com/mathiasbynens/dotfiles/blob/master/brew.sh and https://github.com/webpro/dotfiles/blob/master/install/brew.sh
 
-# Make sure we’re using the latest Homebrew.
-brew update
+# # Install command-line tools using Homebrew.
 
-# Upgrade any already-installed formulae.
-brew upgrade
+# # Make sure we’re using the latest Homebrew.
+# brew update
 
-# Installing packages
-apps=(
-  coreutils
-  git
-  git-extras
-  pandoc
-  ruby
-  python
-)
+# # Upgrade any already-installed formulae.
+# brew upgrade
 
-export brew_apps
-brew install "${brew_apps[@]}"
+# # Installing packages
+# apps=(
+#   coreutils
+#   git
+#   git-extras
+#   pandoc
+#   ruby
+#   python
+# )
 
-# Remove outdated versions from the cellar.
-brew cleanup
+# export brew_apps
+# brew install "${brew_apps[@]}"
 
-export DOTFILES_BREW_PREFIX_COREUTILS=`brew --prefix coreutils`
-set-config "DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_CACHE"
+# # Remove outdated versions from the cellar.
+# brew cleanup
+
+# export DOTFILES_BREW_PREFIX_COREUTILS=`brew --prefix coreutils`
+# set-config "DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_CACHE"
