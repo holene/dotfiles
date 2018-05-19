@@ -1,39 +1,45 @@
 #!/usr/bin/env bash
 
-echo "This is brew.sh"
+running "checking homebrew install"
+brew_bin=$(which brew) 2>&1 > /dev/null
+if [[ $? != 0 ]]; then
+  action "installing homebrew"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    if [[ $? != 0 ]]; then
+      error "unable to install homebrew, script $0 abort!"
+      exit 2
+  fi
+else
+  ok
+  # Make sure we’re using the latest Homebrew
+  running "updating homebrew"
+  brew update
+  ok
+  running "upgrading homebrew"
+  brew upgrade
+  ok
+fi
 
-# if ! is-macos -o ! is-executable ruby -o ! is-executable curl -o ! is-executable git; then
-#   echo "Skipped: Homebrew (missing: ruby, curl and/or git)"
-#   return
-# fi
+# Installing packages
+brew_apps=(
+  coreutils
+  git
+  git-extras
+  pandoc
+  python
+  ruby
+)
 
-# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+running "installing brew packages"
+brew install "${brew_apps[@]}"
+ok
 
-# # Inspired by https://github.com/mathiasbynens/dotfiles/blob/master/brew.sh and https://github.com/webpro/dotfiles/blob/master/install/brew.sh
+# Remove outdated versions from the cellar.
+running "removing outdated versions from the cellar"
+brew cleanup
+ok
 
-# # Install command-line tools using Homebrew.
+export DOTFILES_BREW_PREFIX_COREUTILS=`brew --prefix coreutils`
 
-# # Make sure we’re using the latest Homebrew.
-# brew update
-
-# # Upgrade any already-installed formulae.
-# brew upgrade
-
-# # Installing packages
-# apps=(
-#   coreutils
-#   git
-#   git-extras
-#   pandoc
-#   ruby
-#   python
-# )
-
-# export brew_apps
-# brew install "${brew_apps[@]}"
-
-# # Remove outdated versions from the cellar.
-# brew cleanup
-
-# export DOTFILES_BREW_PREFIX_COREUTILS=`brew --prefix coreutils`
-# set-config "DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_CACHE"
+# not knowing what the hell is happenning here
+set-config "DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_CACHE"
