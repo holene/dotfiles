@@ -1,0 +1,58 @@
+What happens where webpro dotfiles:
+
+line without # is a file
+line with # is description
+indentation implies the current file executes a file that needs to be described
+
+install.sh
+  # set dotfiles directories
+  # add ./bin to path
+    dotfiles file
+      # defining functions
+      # sub_help: prints out which functions are available, just for user help. 
+    is-executable: checks if argument file is executable (type code --> code is /usr/local/bin/code)
+    is-macos: check if we're on a mac
+    is-supported: checks for number of arguments, then evaluates if argument is 1 or more. 
+    json: aner ikke. Helt serr, wtf er greia med denne?
+    plistbuddy: 4 arguments. function simplifying using plistbuddy
+    set-config: 3 arguments. creates a file, writes some shit to the file. Used after running e.g. brew.sh
+  # updating dotfiles repo
+  # setting symlinks. This replaces existing .sh files. 
+  # from 
+    .bash_profile.sh
+      # double checking script and folder paths
+      # adding ./bin/ to path, again
+      # reading .cache.sh if it exists
+      # running each dotfile in the list, if they exist and are files: ./system/*
+        function
+          # do I really need all this with zsh?
+          prepend-path() if I'm to use .path
+        function_*
+          # need: mk(), 
+          # not needed: _fs, _network, _text, _osx
+        path
+          # I don't think I need this... 
+          # Dependency: prepend-path from .functions
+        env
+          # 
+        alias
+          # 
+        completion
+        grep
+        prompt
+        nvb
+        rvm
+        custom
+      # if the repo is run on macos run macos specific dotfiles. Which we won't distinguish on my installation
+        env.macos
+        alias.macos
+        function.macos
+    inputrc
+      # doesn't exist on my old mac. Don't think I need it here either, then
+    gitconfig, gitignore_global
+      # git specific stuff. Not very densly populated on old machine
+  # installing managers and pacages
+  # running tests (no idea why). 
+  # installing extra dotfiles repo if you add it. Not relecant. 
+
+

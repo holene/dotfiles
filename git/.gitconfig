@@ -6,7 +6,8 @@
 	username = holene
 
 [core]
-	# editor = code
+	excludefile = ~/.gitignore_global
+	editor = code
 
 [web]
 	browser = google-chrome

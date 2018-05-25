@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Inspired (cloned by now) by https://github.com/webpro/dotfiles/blob/master/install/bash.sh
+# Inspired by https://github.com/webpro/dotfiles/blob/master/install/bash.sh
 running "This is bash.sh. Checking bash installation"
 
 if ! is-macos -o ! is-executable brew; then

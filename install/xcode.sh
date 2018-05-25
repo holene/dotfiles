@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-running "checking xcode installation"
+running "This is xcode.sh. Checking xcode installation"
 # Only run if the tools are not installed yet
 # To check that try to print the SDK path
 xcode-select -p &> /dev/null

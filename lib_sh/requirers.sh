@@ -82,7 +82,6 @@ function sourceNVM(){
     source $(brew --prefix nvm)/nvm.sh
 }
 
-
 function require_nvm() {
     mkdir -p ~/.nvm
     cp $(brew --prefix nvm)/nvm-exec ~/.nvm/

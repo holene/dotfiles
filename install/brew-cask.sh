@@ -17,6 +17,7 @@ brew tap caskroom/fonts
 
 cask_apps=(
   alfred
+  caffeine
   dash2
   dropbox
   flux

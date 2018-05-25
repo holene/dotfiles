@@ -27,32 +27,40 @@ sub_test () {
 }
 
 sub_update () {
+  running "Running Softwareupdate"
   sudo softwareupdate -i -a
+  ok
+  running "brew update"
   brew update
+  ok
+  running "brew upgrade"
   brew upgrade
+  ok
+  running "updating npm"
   npm install npm -g
   npm update -g
-  gem update --system
-  gem update
+  ok
 }
 
 sub_clean () {
+  running "cleaning up brew, cask and npm"
   brew cleanup
   brew cask cleanup
   npm cache clean
-  gem cleanup
-  rvm cleanup all
+  ok
 }
 
 sub_macos () {
   for DEFAULTS_FILE in "${DOTFILES_DIR}"/macos/defaults*.sh; do
-    echo "Applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
+    running "Applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
+    ok
   done
-  echo "Done. Some changes may require a logout/restart to take effect."
+  ok "Done. Some changes may require a logout/restart to take effect."
 }
 
 sub_dock () {
-  . "${DOTFILES_DIR}/macos/dock.sh" && echo "Dock reloaded."
+  running "reloading dock"
+  . "${DOTFILES_DIR}/macos/dock.sh" && ok "Dock reloaded."
 }
 
 case $COMMAND_NAME in

@@ -25,6 +25,7 @@ brew_apps=(
   coreutils
   git
   git-extras
+  tree
   pandoc
   python
   ruby
