@@ -2,26 +2,24 @@
 
 # Get current dir (so this script runs from anywhere)
 
-export DOTFILES_DIR DOTFILES_CACHE DOTFILES_EXTRA_DIR
+export DOTFILES_DIR DOTFILES_CACHE
 
 # Setting directory helpers
 # Extracting current directory
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
-DOTFILES_EXTRA_DIR="$HOME/.extra"
 
 # Make utilities available, adding them to path
 PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Update dotfiles itself first
-
 if is-executable git -a -d "$DOTFILES_DIR/.git"; then git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master; fi
 
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib_sh/echos.sh
 source ./lib_sh/requirers.sh
 
-bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
+bot "Let's do this! Holene's dotfile repo is running..."
 
 # Ask for the administrator password upfront
 if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/sudoers"; then
@@ -56,10 +54,10 @@ fi
 
 # Package managers & packages
 
-for file in ${DOTFILES_DIR}/install/*
-do
-  . ${file}
-done
+# for file in ${DOTFILES_DIR}/install/*
+# do
+#   . ${file}
+# done
 
 # . "$DOTFILES_DIR/install/xcode.sh"
 # . "$DOTFILES_DIR/install/brew.sh"

@@ -9,11 +9,13 @@ if ! is-macos -o ! is-executable brew; then
   return
 fi
 
+action "installing caskroom/{versions, cask, fonts}"
 brew tap caskroom/versions
 brew tap caskroom/cask
 brew tap caskroom/fonts
+ok
 
-# # Install packages
+# Install packages
 
 cask_apps=(
   alfred
@@ -26,6 +28,7 @@ cask_apps=(
   iterm2
   mactex
   postman
+  powershell
   screenflow
   slack
   sourcetree
@@ -37,7 +40,7 @@ cask_apps=(
 )
 
 # export cask_apps
-brew cask install "${cask_apps[@]}"
+require_cask "${cask_apps[@]}"
 
 # # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 cask_qlplugins=(
@@ -52,7 +55,7 @@ cask_qlplugins=(
 )
 
 # Installing quick look plugins
-brew cask install "${cask_qlplugins[@]}"
+require_cask "${cask_qlplugins[@]}"
 
 # # Link Hammerspoon config
 # if [ ! -d ~/.hammerspoon ]; then ln -sfv "$DOTFILES_DIR/etc/hammerspoon/" ~/.hammerspoon; fi
