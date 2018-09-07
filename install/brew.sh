@@ -25,10 +25,11 @@ brew_apps=(
   coreutils
   git
   git-extras
-  tree
+  master
   pandoc
   python
   ruby
+  tree
 )
 
 running "installing brew packages"
