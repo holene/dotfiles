@@ -18,25 +18,46 @@ ok
 # Install packages
 
 cask_apps=(
-  alfred
-  caffeine
-  dash2
   dropbox
   flux
+)
+
+cask_apps=(
+  # alfred
+  # caffeine
+  # amphetamine
+  bitwarden
+  # dash2
+  dropbox
+  flux
+  figma
+  flycut
+  fontbase
   google-chrome
   google-chrome-canary
   iterm2
-  mactex
+  # kitemaker
+  licecap
+  # mactex
+  miro
+  messenger
+  notion
+  obsidian
   postman
-  powershell
-  screenflow
+  raycast
+  # powershell
+  # screenflow
+  signal
   slack
-  sourcetree
+  # sourcetree
   spotify
-  sublime-text
+  superhuman
+  # sublime-text
   # virtualbox
   visual-studio-code
   vlc
+  whatsapp
+  zoom
 )
 
 # export cask_apps

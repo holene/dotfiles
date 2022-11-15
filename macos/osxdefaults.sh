@@ -4,7 +4,7 @@
 
 echo "Initialising" *
 
-COMPUTER_NAME="Holene"
+COMPUTER_NAME="holene"
 
 osascript -e 'tell application "System Preferences" to quit'
 
